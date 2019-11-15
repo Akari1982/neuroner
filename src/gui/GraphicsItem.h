@@ -34,6 +34,7 @@ public:
         IT_POWER,
         IT_NFET,
         IT_PFET,
+        IT_NEURON,
         IT_SUB_CURCUIT
     };
     ItemType GetType() const;

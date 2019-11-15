@@ -3,12 +3,13 @@
 #include "Element.h"
 #include "Wire.h"
 #include "elements/Ground.h"
+#include "elements/Neuron.h"
 #include "elements/Nfet.h"
 #include "elements/Pfet.h"
 #include "elements/Pin.h"
 #include "elements/Power.h"
 
-#include <QGraphicsItem.h>
+#include <QGraphicsItem>
 #include <QtWidgets>
 
 
@@ -35,6 +36,7 @@ Circuit::Circuit( QObject* parent ):
     m_MoveOffset( QPointF( 0, 0 ) ),
     m_MovedHold( false )
 {
+    addWidget( &m_Chart );
 }
 
 
@@ -512,6 +514,15 @@ void
 Circuit::InsertPfet()
 {
     GraphicsItem* element = new Pfet();
+    InsertElement( element );
+}
+
+
+
+void
+Circuit::InsertNeuron()
+{
+    GraphicsItem* element = new Neuron();
     InsertElement( element );
 }
 

@@ -30,6 +30,7 @@ private  slots:
     void InsertPower();
     void InsertNfet();
     void InsertPfet();
+    void InsertNeuron();
 
 private:
     QSplitter* m_Splitter;

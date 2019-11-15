@@ -1,5 +1,5 @@
 #include "GraphicsItem.h"
-#include "core/Circuit.h"
+#include "Circuit.h"
 
 #include <QtWidgets>
 

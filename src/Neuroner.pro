@@ -34,37 +34,39 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES +=\
-    core/Circuit.cpp \
-    core/Connect.cpp \
-    core/Element.cpp \
-    core/Line.cpp \
-    core/elements/Ground.cpp \
-    core/elements/Nfet.cpp \
-    core/elements/Pfet.cpp \
-    core/elements/Pin.cpp \
-    core/Wire.cpp \
-    core/elements/Power.cpp \
-    core/GraphicsItem.cpp \
-    core/GraphicsView.cpp \
-    core/Main.cpp \
-    core/MainWindow.cpp \
-    core/View.cpp \
+    gui/Circuit.cpp \
+    gui/Connect.cpp \
+    gui/Element.cpp \
+    gui/Line.cpp \
+    gui/elements/Ground.cpp \
+    gui/elements/Neuron.cpp \
+    gui/elements/Nfet.cpp \
+    gui/elements/Pfet.cpp \
+    gui/elements/Pin.cpp \
+    gui/Wire.cpp \
+    gui/elements/Power.cpp \
+    gui/GraphicsItem.cpp \
+    gui/GraphicsView.cpp \
+    Main.cpp \
+    gui/MainWindow.cpp \
+    gui/View.cpp \
 
 HEADERS  += \
-    core/Circuit.h \
-    core/Connect.h \
-    core/Element.h \
-    core/Line.h \
-    core/elements/Ground.h \
-    core/elements/Nfet.h \
-    core/elements/Pfet.h \
-    core/elements/Pin.h \
-    core/Wire.h \
-    core/elements/Power.h \
-    core/GraphicsItem.h \
-    core/GraphicsView.h \
-    core/MainWindow.h \
-    core/View.h \
+    gui/Circuit.h \
+    gui/Connect.h \
+    gui/Element.h \
+    gui/Line.h \
+    gui/elements/Ground.h \
+    gui/elements/Neuron.h \
+    gui/elements/Nfet.h \
+    gui/elements/Pfet.h \
+    gui/elements/Pin.h \
+    gui/Wire.h \
+    gui/elements/Power.h \
+    gui/GraphicsItem.h \
+    gui/GraphicsView.h \
+    gui/MainWindow.h \
+    gui/View.h \
 
 RESOURCES += \
     images.qrc

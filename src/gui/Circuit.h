@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <QGraphicsScene>
+#include <QChart>
 
 class Connect;
 class GraphicsItem;
@@ -34,6 +35,7 @@ public:
     void InsertPower();
     void InsertNfet();
     void InsertPfet();
+    void InsertNeuron();
 
     std::vector< Element* >& GetElements();
     std::vector< Wire* >& GetWires();
@@ -94,6 +96,8 @@ private:
     bool m_MovedHold;
     std::vector< GraphicsItem* > m_MovedItem;
     std::vector< GraphicsItem* > m_CopiedItem;
+
+    QChart m_Chart;
 };
 
 

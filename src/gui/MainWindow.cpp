@@ -7,13 +7,14 @@
 
 #include "GraphicsItem.h"
 #include "View.h"
-#include "core/Circuit.h"
-#include "core/Wire.h"
-#include "core/elements/Ground.h"
-#include "core/elements/Nfet.h"
-#include "core/elements/Pfet.h"
-#include "core/elements/Power.h"
-#include "core/elements/Pin.h"
+#include "Circuit.h"
+#include "Wire.h"
+#include "elements/Ground.h"
+#include "elements/Neuron.h"
+#include "elements/Nfet.h"
+#include "elements/Pfet.h"
+#include "elements/Power.h"
+#include "elements/Pin.h"
 
 
 
@@ -56,6 +57,10 @@ MainWindow::MainWindow( QWidget *parent ):
     insert_pfet->setStatusTip( tr( "Inserts new Pfet element." ) );
     connect( insert_pfet, &QAction::triggered, this, &InsertPfet );
     m_ToolBar->addAction( insert_pfet );
+    QAction* insert_neuron = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertNeuron" ), this );
+    insert_neuron->setStatusTip( tr( "Inserts new Neuron element." ) );
+    connect( insert_neuron, &QAction::triggered, this, &InsertNeuron );
+    m_ToolBar->addAction( insert_neuron );
 
     m_Splitter = new QSplitter();
     m_Splitter->setOrientation( Qt::Horizontal );
@@ -311,5 +316,16 @@ MainWindow::InsertPfet()
     if( m_Circuit != 0 )
     {
         m_Circuit->InsertPfet();
+    }
+}
+
+
+
+void
+MainWindow::InsertNeuron()
+{
+    if( m_Circuit != 0 )
+    {
+        m_Circuit->InsertNeuron();
     }
 }
