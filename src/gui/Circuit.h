@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <QGraphicsScene>
-#include <QChart>
+#include <QtCharts/QtCharts>
 
 class Connect;
 class GraphicsItem;
@@ -97,7 +97,8 @@ private:
     std::vector< GraphicsItem* > m_MovedItem;
     std::vector< GraphicsItem* > m_CopiedItem;
 
-    QChart m_Chart;
+    QChart* m_Chart;
+    QLineSeries* m_Series;
 };
 
 

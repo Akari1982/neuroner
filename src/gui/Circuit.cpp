@@ -36,13 +36,50 @@ Circuit::Circuit( QObject* parent ):
     m_MoveOffset( QPointF( 0, 0 ) ),
     m_MovedHold( false )
 {
-    addWidget( &m_Chart );
+    m_Chart = new QChart();
+
+    m_Series = new QLineSeries();
+    for( int i = 0; i < 10; ++i )
+    {
+        m_Series->append( i, i * i );
+    }
+    //series->setName( "Test" );
+    m_Chart->addSeries( m_Series );
+    //m_Chart->setTitle( "QT Charts example" );
+    m_Chart->layout()->setContentsMargins( 1, 1, 1, 1 );
+    m_Chart->setMargins( QMargins() );
+    m_Chart->setBackgroundRoundness( 0 );
+    //m_Chart->setAnimationOptions( QChart::AllAnimations );
+    m_Chart->legend()->hide();
+
+    //add axis to the chart
+    QValueAxis* axisX = new QValueAxis();
+    //axisX->setTickCount( 20 );
+    axisX->setLabelFormat( "%i" );
+    axisX->setTitleText( "t [ms]" );
+    m_Chart->addAxis( axisX, Qt::AlignBottom );
+    m_Series->attachAxis( axisX );
+
+    QValueAxis* axisY = new QValueAxis();
+    axisY->setLabelFormat( "%i" );
+    axisY->setTitleText( "V [mV]" );
+    axisY->setMin( -70 );
+    axisY->setMax( 130 );
+    m_Chart->addAxis( axisY, Qt::AlignLeft );
+    m_Series->attachAxis( axisY );
+
+    QChartView *chartView = new QChartView( m_Chart );
+    chartView->setRenderHint( QPainter::Antialiasing );
+    chartView->setSceneRect( 0, 0, 400, 200 );
+    addWidget( chartView );
 }
 
 
 
 Circuit::~Circuit()
 {
+    delete m_Chart;
+
     for( unsigned int i = 0; i < m_Elements.size(); ++i )
     {
         delete m_Elements[ i ];
@@ -445,6 +482,10 @@ Circuit::DoStep()
             return;
         }
     }
+
+    m_Series->append( m_Series->at( m_Series->count() - 1 ).x() + 1, 100 );
+    //m_Series->remove( 0 );
+    m_Chart->axisX()->setRange( m_Series->at( 0 ).x(), m_Series->count() );
 }
 
 
