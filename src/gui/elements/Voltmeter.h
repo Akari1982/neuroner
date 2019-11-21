@@ -1,17 +1,19 @@
-#ifndef NFET_H
-#define NFET_H
+#ifndef VOLTMETER_H
+#define VOLTMETER_H
 
 #include "../Element.h"
+#include <QtCharts/QtCharts>
 
 class Connect;
+class Line;
 
 
 
-class Nfet : public Element
+class Voltmeter : public Element
 {
 public:
-    Nfet();
-    virtual ~Nfet();
+    Voltmeter();
+    virtual ~Voltmeter();
 
     Element* Copy();
 
@@ -22,10 +24,11 @@ public:
     void Trace( Line* line, Connect* connect );
     void SetValue( const int value, Connect* connect );
 
-protected:
-    int m_Switch;
+private:
+    QChart* m_Chart;
+    QLineSeries* m_Series;
 };
 
 
 
-#endif // NFET_H
+#endif // VOLTMETER_H

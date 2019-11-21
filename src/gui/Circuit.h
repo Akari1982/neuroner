@@ -36,6 +36,7 @@ public:
     void InsertNfet();
     void InsertPfet();
     void InsertNeuron();
+    void InsertVoltmeter();
 
     std::vector< Element* >& GetElements();
     std::vector< Wire* >& GetWires();

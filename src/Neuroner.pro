@@ -51,6 +51,7 @@ SOURCES +=\
     Main.cpp \
     gui/MainWindow.cpp \
     gui/View.cpp \
+    gui/elements/Voltmeter.cpp \
 
 HEADERS  += \
     gui/Circuit.h \
@@ -68,6 +69,7 @@ HEADERS  += \
     gui/GraphicsView.h \
     gui/MainWindow.h \
     gui/View.h \
+    gui/elements/Voltmeter.h \
 
 RESOURCES += \
     images.qrc

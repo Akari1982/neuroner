@@ -39,28 +39,32 @@ MainWindow::MainWindow( QWidget *parent ):
     m_ToolBar = addToolBar( tr( "Elements" ) );
     QAction* insert_pin = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertPin" ), this );
     insert_pin->setStatusTip( tr( "Inserts new Pin element." ) );
-    connect( insert_pin, &QAction::triggered, this, &InsertPin );
+    connect( insert_pin, &QAction::triggered, this, &MainWindow::InsertPin );
     m_ToolBar->addAction( insert_pin );
     QAction* insert_ground = new QAction( QIcon( QPixmap( ":/images/ground.png" ) ), tr( "&InsertGround" ), this );
     insert_ground->setStatusTip( tr( "Inserts new Ground element." ) );
-    connect( insert_ground, &QAction::triggered, this, &InsertGround );
+    connect( insert_ground, &QAction::triggered, this, &MainWindow::InsertGround );
     m_ToolBar->addAction( insert_ground );
     QAction* insert_power = new QAction( QIcon( QPixmap( ":/images/power.png" ) ), tr( "&InsertPower" ), this );
     insert_power->setStatusTip( tr( "Inserts new Power element." ) );
-    connect( insert_power, &QAction::triggered, this, &InsertPower );
+    connect( insert_power, &QAction::triggered, this, &MainWindow::InsertPower );
     m_ToolBar->addAction( insert_power );
     QAction* insert_nfet = new QAction( QIcon( QPixmap( ":/images/nfet.png" ) ), tr( "&InsertNfet" ), this );
     insert_nfet->setStatusTip( tr( "Inserts new Nfet element." ) );
-    connect( insert_nfet, &QAction::triggered, this, &InsertNfet );
+    connect( insert_nfet, &QAction::triggered, this, &MainWindow::InsertNfet );
     m_ToolBar->addAction( insert_nfet );
     QAction* insert_pfet = new QAction( QIcon( QPixmap( ":/images/pfet.png" ) ), tr( "&InsertPfet" ), this );
     insert_pfet->setStatusTip( tr( "Inserts new Pfet element." ) );
-    connect( insert_pfet, &QAction::triggered, this, &InsertPfet );
+    connect( insert_pfet, &QAction::triggered, this, &MainWindow::InsertPfet );
     m_ToolBar->addAction( insert_pfet );
     QAction* insert_neuron = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertNeuron" ), this );
     insert_neuron->setStatusTip( tr( "Inserts new Neuron element." ) );
-    connect( insert_neuron, &QAction::triggered, this, &InsertNeuron );
+    connect( insert_neuron, &QAction::triggered, this, &MainWindow::InsertNeuron );
     m_ToolBar->addAction( insert_neuron );
+    QAction* insert_voltmeter = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertVoltmeter" ), this );
+    insert_voltmeter->setStatusTip( tr( "Inserts new Voltmeter element." ) );
+    connect( insert_voltmeter, &QAction::triggered, this, &MainWindow::InsertVoltmeter );
+    m_ToolBar->addAction( insert_voltmeter );
 
     m_Splitter = new QSplitter();
     m_Splitter->setOrientation( Qt::Horizontal );
@@ -241,6 +245,7 @@ MainWindow::SaveAs()
                 case GraphicsItem::IT_POWER: xml.writeAttribute( "type", "power" ); break;
                 case GraphicsItem::IT_NFET: xml.writeAttribute( "type", "nfet" ); break;
                 case GraphicsItem::IT_PFET: xml.writeAttribute( "type", "pfet" ); break;
+                default: {}
             }
             xml.writeAttribute( "pos", tr( "%1 %2" ).arg( el->pos().x() ).arg( el->pos().y() ) );
             xml.writeAttribute( "rot", tr( "%1" ).arg( el->rotation() ) );
@@ -327,5 +332,16 @@ MainWindow::InsertNeuron()
     if( m_Circuit != 0 )
     {
         m_Circuit->InsertNeuron();
+    }
+}
+
+
+
+void
+MainWindow::InsertVoltmeter()
+{
+    if( m_Circuit != 0 )
+    {
+        m_Circuit->InsertVoltmeter();
     }
 }
