@@ -1,54 +1,42 @@
-#include "Neuron.h"
+#include "ElementContainer.h"
 
-#include "../GraphicsScene.h"
-#include "../Connect.h"
-#include "../Line.h"
+#include "../gui/Connect.h"
+#include "../gui/Line.h"
 
 #include <QtWidgets>
 
 
 
-Neuron::Neuron()
-{
-    m_ItemType = IT_NEURON;
-
-    Contact con;
-    con.connect = 0;
-    con.point = QPoint( -15, -30 );
-    m_Contacts.push_back( con );
-    con.point = QPoint( 15, -30 );
-    m_Contacts.push_back( con );
-    con.point = QPoint( 0, 45 );
-    m_Contacts.push_back( con );
-}
-
-
-
-Neuron::~Neuron()
+ElementContainer::ElementContainer()
 {
 }
 
 
 
-Element*
-Neuron::Copy()
+ElementContainer::~ElementContainer()
 {
-    Element* element = new Neuron();
-    return element;
+}
+
+
+
+ElementContainer*
+ElementContainer::Copy()
+{
+    ElementContainer* element = new ElementContainer();
 }
 
 
 
 QRectF
-Neuron::boundingRect() const
+ElementContainer::boundingRect() const
 {
-    return QRectF( -21, -21, 42, 42 );
+    return QRectF( -18, -3, 36, 21 );
 }
 
 
 
 void
-Neuron::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget )
+ElementContainer::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget )
 {
     Q_UNUSED( widget );
     painter->setPen( QPen( Qt::black, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin ) );
@@ -82,21 +70,6 @@ Neuron::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidge
 
 
 void
-Neuron::Update()
-{
-}
-
-
-
-void
-Neuron::Trace( Line* line, Connect* connect )
-{
-    m_Visited = true;
-}
-
-
-
-void
-Neuron::SetValue( const int value, Connect* connect )
+ElementContainer::Update()
 {
 }

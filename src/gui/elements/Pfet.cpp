@@ -1,6 +1,6 @@
 #include "Pfet.h"
 
-#include "../Circuit.h"
+#include "../GraphicsScene.h"
 #include "../Connect.h"
 #include "../Line.h"
 
@@ -173,7 +173,7 @@ Pfet::SetValue( const int value, Connect* connect )
             {
                 if( m_Circuit != 0 )
                 {
-                    m_Circuit->AddToUpdate( this );
+                    //m_Circuit->AddToUpdate( this );
                 }
                 m_Switch = value;
             }

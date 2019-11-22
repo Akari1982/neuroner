@@ -1,5 +1,5 @@
 #include "Connect.h"
-#include "Circuit.h"
+#include "GraphicsScene.h"
 #include "Wire.h"
 
 #include <QtWidgets>

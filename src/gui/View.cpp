@@ -31,7 +31,7 @@ View::View( QWidget* parent ):
 
     m_ZoomSlider = new QSlider();
     m_ZoomSlider->setMinimum( 1 );
-    m_ZoomSlider->setMaximum( 100 );
+    m_ZoomSlider->setMaximum( 50 );
     m_ZoomSlider->setValue( 10 );
     m_ZoomSlider->setTickPosition( QSlider::TicksRight );
 

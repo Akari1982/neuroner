@@ -5,16 +5,9 @@
 #include <QSplitter>
 #include <QXmlSimpleReader>
 
+#include "GraphicsScene.h"
 #include "GraphicsItem.h"
 #include "View.h"
-#include "Circuit.h"
-#include "Wire.h"
-#include "elements/Ground.h"
-#include "elements/Neuron.h"
-#include "elements/Nfet.h"
-#include "elements/Pfet.h"
-#include "elements/Power.h"
-#include "elements/Pin.h"
 
 
 
@@ -69,12 +62,12 @@ MainWindow::MainWindow( QWidget *parent ):
     m_Splitter = new QSplitter();
     m_Splitter->setOrientation( Qt::Horizontal );
 
-    m_Circuit = new Circuit( this );
-    m_Circuit->setSceneRect( -32000, -32000, 64000, 64000 );
+    m_Scene = new GraphicsScene( this );
+    m_Scene->setSceneRect( -32000, -32000, 64000, 64000 );
 
     m_View = new View();
     m_Splitter->addWidget( m_View );
-    m_View->view()->setScene( m_Circuit );
+    m_View->view()->setScene( m_Scene );
     setCentralWidget( m_Splitter );
 
     setWindowTitle( tr( "Neuroner" ) );
@@ -89,9 +82,9 @@ MainWindow::MainWindow( QWidget *parent ):
 
 MainWindow::~MainWindow()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        delete m_Circuit;
+        delete m_Scene;
     }
 }
 
@@ -102,20 +95,21 @@ MainWindow::~MainWindow()
 void
 MainWindow::Open()
 {
+/*
     QString filename = QFileDialog::getOpenFileName( this, tr( "Open Circuit File" ), QDir::currentPath(), tr( "Circuit Files (*.xml)" ) );
     if( filename.isEmpty() )
     {
         return;
     }
 
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        delete m_Circuit;
+        delete m_Scene;
     }
 
-    m_Circuit = new Circuit( this );
-    m_Circuit->setSceneRect( -32000, -32000, 64000, 64000 );
-    m_View->view()->setScene( m_Circuit );
+    m_Scene = new GraphicsScene( this );
+    m_Scene->setSceneRect( -32000, -32000, 64000, 64000 );
+    m_View->view()->setScene( m_Scene );
 
     QFile file( filename );
     if( !file.open( QFile::ReadOnly | QFile::Text ) )
@@ -141,7 +135,7 @@ MainWindow::Open()
                     {
                         wire = new Wire();
                         wire->SetLine( QLine( vec[ 0 ].toInt(), vec[ 1 ].toInt(), vec[ 2 ].toInt(), vec[ 3 ].toInt() ) );
-                        m_Circuit->ConnectWire( wire );
+                        m_Scene->ConnectWire( wire );
                     }
                 }
                 else if( xml.name() == "element" )
@@ -174,7 +168,7 @@ MainWindow::Open()
                         }
                         el->setPos( QPointF( vec[ 0 ].toInt(), vec[ 1 ].toInt() ) );
                         el->setRotation( xml.attributes().value( "rot" ).toInt() );
-                        m_Circuit->ConnectElement( el );
+                        m_Scene->ConnectElement( el );
                     }
                 }
                 xml.skipCurrentElement();
@@ -195,7 +189,8 @@ MainWindow::Open()
         statusBar()->showMessage( tr( "File %1 loaded" ).arg( filename ), 2000 );
     }
 
-    m_Circuit->UpdateAll();
+    m_Scene->UpdateAll();
+*/
 }
 
 
@@ -203,6 +198,7 @@ MainWindow::Open()
 void
 MainWindow::SaveAs()
 {
+/*
     QString filename = QFileDialog::getSaveFileName( this, tr( "Save Circuit File" ), QDir::currentPath(), tr( "Circuit Files (*.xml)" ) );
     if( filename.isEmpty() )
     {
@@ -220,9 +216,9 @@ MainWindow::SaveAs()
     xml.setAutoFormatting( true );
     xml.writeStartDocument();
     xml.writeStartElement( "circuit" );
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        std::vector< Wire* > wires = m_Circuit->GetWires();
+        std::vector< Wire* > wires = m_Scene->GetWires();
         for( unsigned int i = 0; i < wires.size(); ++i )
         {
             QLine line = wires[ i ]->GetLine();
@@ -233,7 +229,7 @@ MainWindow::SaveAs()
             xml.writeEndElement();
         }
 
-        std::vector< Element* > elements = m_Circuit->GetElements();
+        std::vector< Element* > elements = m_Scene->GetElements();
         for( unsigned int i = 0; i < elements.size(); ++i )
         {
             Element* el = elements[ i ];
@@ -255,6 +251,7 @@ MainWindow::SaveAs()
 
     xml.writeEndDocument();
     statusBar()->showMessage( tr( "File saved" ), 2000 );
+*/
 }
 
 
@@ -262,10 +259,10 @@ MainWindow::SaveAs()
 void
 MainWindow::CircuitUpdate()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->DoStep();
-        m_Circuit->update( m_Circuit->sceneRect() );
+        m_Scene->Update();
+        m_Scene->update( m_Scene->sceneRect() );
     }
 }
 
@@ -274,9 +271,9 @@ MainWindow::CircuitUpdate()
 void
 MainWindow::InsertPin()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->InsertPin();
+        //m_Scene->InsertPin();
     }
 }
 
@@ -285,9 +282,9 @@ MainWindow::InsertPin()
 void
 MainWindow::InsertGround()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->InsertGround();
+        //m_Scene->InsertGround();
     }
 }
 
@@ -296,9 +293,9 @@ MainWindow::InsertGround()
 void
 MainWindow::InsertPower()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->InsertPower();
+        //m_Scene->InsertPower();
     }
 }
 
@@ -307,9 +304,9 @@ MainWindow::InsertPower()
 void
 MainWindow::InsertNfet()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->InsertNfet();
+        //m_Scene->InsertNfet();
     }
 }
 
@@ -318,9 +315,9 @@ MainWindow::InsertNfet()
 void
 MainWindow::InsertPfet()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->InsertPfet();
+        //m_Scene->InsertPfet();
     }
 }
 
@@ -329,9 +326,9 @@ MainWindow::InsertPfet()
 void
 MainWindow::InsertNeuron()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->InsertNeuron();
+        //m_Scene->InsertNeuron();
     }
 }
 
@@ -340,8 +337,8 @@ MainWindow::InsertNeuron()
 void
 MainWindow::InsertVoltmeter()
 {
-    if( m_Circuit != 0 )
+    if( m_Scene != 0 )
     {
-        m_Circuit->InsertVoltmeter();
+        //m_Scene->InsertVoltmeter();
     }
 }

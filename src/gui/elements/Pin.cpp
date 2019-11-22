@@ -1,6 +1,6 @@
 #include "Pin.h"
 
-#include "../Circuit.h"
+#include "../GraphicsScene.h"
 #include "../Connect.h"
 #include "../Line.h"
 
@@ -121,7 +121,7 @@ Pin::UserSetValue( const int value )
 {
     if( m_Value != value )
     {
-        m_Circuit->AddToUpdate( this );
+        //m_Circuit->AddToUpdate( this );
         m_Value = value;
     }
 }

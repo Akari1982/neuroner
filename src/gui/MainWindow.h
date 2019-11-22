@@ -7,7 +7,7 @@
 #include <QTimer>
 
 class QSplitter;
-class Circuit;
+class GraphicsScene;
 class View;
 
 
@@ -44,7 +44,7 @@ private:
 
     QTimer m_CircuitTimer;
 
-    Circuit* m_Circuit;
+    GraphicsScene* m_Scene;
 };
 
 

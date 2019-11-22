@@ -4,7 +4,7 @@
 #include <QGraphicsItem>
 #include <QColor>
 
-class Circuit;
+class GraphicsScene;
 
 #define SELECT_COLOR QColor( 0, 0, 255, 100 )
 #define CONNECT_COLOR QColor( 178, 0, 0 )
@@ -24,7 +24,7 @@ public:
     QRectF boundingRect() const override = 0;
     void paint( QPainter* painter, const QStyleOptionGraphicsItem* item, QWidget* widget ) override = 0;
 
-    void SetCircuit( Circuit* circuit );
+    void SetCircuit( GraphicsScene* circuit );
 
     enum ItemType
     {
@@ -41,7 +41,7 @@ public:
     ItemType GetType() const;
 
 protected:
-    Circuit* m_Circuit;
+    GraphicsScene* m_Circuit;
     ItemType m_ItemType;
 };
 

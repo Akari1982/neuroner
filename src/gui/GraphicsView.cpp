@@ -47,7 +47,7 @@ void
 GraphicsView::Scale( const qreal scale )
 {
     m_Scale = scale;
-    m_Scale = ( m_Scale > 10.0f ) ? 10.0f: m_Scale;
+    m_Scale = ( m_Scale > 5.0f ) ? 5.0f: m_Scale;
     m_Scale = ( m_Scale < 0.1f ) ? 0.1f: m_Scale;
     setTransformationAnchor( QGraphicsView::NoAnchor );
     SetupMatrix();
@@ -63,7 +63,7 @@ GraphicsView::wheelEvent( QWheelEvent* event )
     if( event->delta() > 0 )
     {
         m_Scale *= 1.1f;
-        m_Scale = ( m_Scale > 10.0f ) ? 10.0f: m_Scale;
+        m_Scale = ( m_Scale > 5.0f ) ? 5.0f: m_Scale;
     }
     else
     {

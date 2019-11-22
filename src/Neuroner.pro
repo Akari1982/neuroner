@@ -35,41 +35,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES +=\
-    gui/Circuit.cpp \
-    gui/Connect.cpp \
-    gui/Element.cpp \
-    gui/Line.cpp \
-    gui/elements/Ground.cpp \
-    gui/elements/Neuron.cpp \
-    gui/elements/Nfet.cpp \
-    gui/elements/Pfet.cpp \
-    gui/elements/Pin.cpp \
-    gui/Wire.cpp \
-    gui/elements/Power.cpp \
     gui/GraphicsItem.cpp \
+    gui/GraphicsScene.cpp \
     gui/GraphicsView.cpp \
-    Main.cpp \
     gui/MainWindow.cpp \
     gui/View.cpp \
-    gui/elements/Voltmeter.cpp \
+    model/Element.cpp \
+    model/ElementContainer.cpp \
+    Main.cpp \
 
 HEADERS  += \
-    gui/Circuit.h \
-    gui/Connect.h \
-    gui/Element.h \
-    gui/Line.h \
-    gui/elements/Ground.h \
-    gui/elements/Neuron.h \
-    gui/elements/Nfet.h \
-    gui/elements/Pfet.h \
-    gui/elements/Pin.h \
-    gui/Wire.h \
-    gui/elements/Power.h \
     gui/GraphicsItem.h \
+    gui/GraphicsScene.h \
     gui/GraphicsView.h \
     gui/MainWindow.h \
     gui/View.h \
-    gui/elements/Voltmeter.h \
+    model/Element.h \
+    model/ElementContainer.h \
 
 RESOURCES += \
     images.qrc

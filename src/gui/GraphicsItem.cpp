@@ -1,5 +1,5 @@
 #include "GraphicsItem.h"
-#include "Circuit.h"
+#include "GraphicsScene.h"
 
 #include <QtWidgets>
 
@@ -21,7 +21,7 @@ GraphicsItem::~GraphicsItem()
 
 
 void
-GraphicsItem::SetCircuit( Circuit* circuit )
+GraphicsItem::SetCircuit( GraphicsScene* circuit )
 {
     m_Circuit = circuit;
 }

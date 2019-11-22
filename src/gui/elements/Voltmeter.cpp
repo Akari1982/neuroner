@@ -1,6 +1,6 @@
 #include "Voltmeter.h"
 
-#include "../Circuit.h"
+#include "../GraphicsScene.h"
 #include "../Connect.h"
 #include "../Line.h"
 
