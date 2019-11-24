@@ -25,6 +25,7 @@ private  slots:
     void SaveAs();
     void CircuitUpdate();
 
+    void InsertContainer();
     void InsertPin();
     void InsertGround();
     void InsertPower();

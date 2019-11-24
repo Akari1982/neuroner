@@ -30,6 +30,11 @@ MainWindow::MainWindow( QWidget *parent ):
     m_FileMenu->addAction( m_ExitAct );
 
     m_ToolBar = addToolBar( tr( "Elements" ) );
+    QAction* insert_container = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertContainer" ), this );
+    insert_container->setStatusTip( tr( "Inserts new Pin element." ) );
+    connect( insert_container, &QAction::triggered, this, &MainWindow::InsertContainer );
+    m_ToolBar->addAction( insert_container );
+    /*
     QAction* insert_pin = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertPin" ), this );
     insert_pin->setStatusTip( tr( "Inserts new Pin element." ) );
     connect( insert_pin, &QAction::triggered, this, &MainWindow::InsertPin );
@@ -58,6 +63,7 @@ MainWindow::MainWindow( QWidget *parent ):
     insert_voltmeter->setStatusTip( tr( "Inserts new Voltmeter element." ) );
     connect( insert_voltmeter, &QAction::triggered, this, &MainWindow::InsertVoltmeter );
     m_ToolBar->addAction( insert_voltmeter );
+    */
 
     m_Splitter = new QSplitter();
     m_Splitter->setOrientation( Qt::Horizontal );
@@ -259,10 +265,21 @@ MainWindow::SaveAs()
 void
 MainWindow::CircuitUpdate()
 {
-    if( m_Scene != 0 )
+    if( m_Scene != NULL )
     {
         m_Scene->Update();
         m_Scene->update( m_Scene->sceneRect() );
+    }
+}
+
+
+
+void
+MainWindow::InsertContainer()
+{
+    if( m_Scene != NULL )
+    {
+        m_Scene->GetContainer()->InsertContainer();
     }
 }
 

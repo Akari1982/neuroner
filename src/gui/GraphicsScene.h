@@ -17,6 +17,8 @@ public:
 
     void Update();
 
+    ElementContainer* GetContainer();
+
 protected:
     void drawBackground( QPainter* painter, const QRectF& rect );
     void drawForeground( QPainter* painter, const QRectF& rect );

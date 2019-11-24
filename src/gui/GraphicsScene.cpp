@@ -9,7 +9,7 @@ GraphicsScene::GraphicsScene( QObject* parent ):
     QGraphicsScene( parent )
 {
     m_Container = new ElementContainer();
-    addItem( m_Container );
+    m_Container->SetToScene( this );
 }
 
 
@@ -23,6 +23,15 @@ GraphicsScene::~GraphicsScene()
 void
 GraphicsScene::Update()
 {
+    m_Container->Update();
+}
+
+
+
+ElementContainer*
+GraphicsScene::GetContainer()
+{
+    return m_Container;
 }
 
 
@@ -47,7 +56,6 @@ GraphicsScene::drawForeground( QPainter* painter, const QRectF& rect )
 void
 GraphicsScene::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
-    event->accept();
 }
 
 
@@ -55,7 +63,6 @@ GraphicsScene::mousePressEvent( QGraphicsSceneMouseEvent* event )
 void
 GraphicsScene::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 {
-    event->accept();
 }
 
 
@@ -63,7 +70,6 @@ GraphicsScene::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 void
 GraphicsScene::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 {
-    event->accept();
 }
 
 

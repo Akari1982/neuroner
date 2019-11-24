@@ -7,6 +7,8 @@
 Element::Element()
 {
     setZValue( 2 );
+
+    setPos( qrand() % 1000 - 500, qrand() % 1000 - 500 );
 }
 
 
@@ -20,10 +22,7 @@ Element::~Element()
 void
 Element::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
-    if( isSelected() == true )
-    {
-        event->accept();
-    }
+    this->setCursor(QCursor(Qt::ClosedHandCursor));
 }
 
 
@@ -31,6 +30,7 @@ Element::mousePressEvent( QGraphicsSceneMouseEvent* event )
 void
 Element::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 {
+    this->setCursor(QCursor(Qt::ArrowCursor));
 }
 
 
@@ -38,4 +38,5 @@ Element::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 void
 Element::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 {
+    this->setPos(mapToScene(event->pos()));
 }

@@ -3,6 +3,10 @@
 
 #include "Element.h"
 
+#include <vector>
+
+class GraphicsScene;
+
 
 
 class ElementContainer : public Element
@@ -17,6 +21,15 @@ public:
     void paint( QPainter* painter, const QStyleOptionGraphicsItem* item, QWidget* widget ) override;
 
     void Update();
+
+    void SetToScene( GraphicsScene* scene );
+
+    void InsertContainer();
+
+private:
+    std::vector< Element* > m_Elements;
+
+    GraphicsScene* m_Scene;
 };
 
 

@@ -1,13 +1,13 @@
 #include "ElementContainer.h"
 
-#include "../gui/Connect.h"
-#include "../gui/Line.h"
+#include "../gui/GraphicsScene.h"
 
 #include <QtWidgets>
 
 
 
-ElementContainer::ElementContainer()
+ElementContainer::ElementContainer():
+    m_Scene( NULL )
 {
 }
 
@@ -15,6 +15,10 @@ ElementContainer::ElementContainer()
 
 ElementContainer::~ElementContainer()
 {
+    for( size_t i = 0; i < m_Elements.size(); ++i )
+    {
+        delete m_Elements[ i ];
+    }
 }
 
 
@@ -23,6 +27,7 @@ ElementContainer*
 ElementContainer::Copy()
 {
     ElementContainer* element = new ElementContainer();
+    return element;
 }
 
 
@@ -30,7 +35,7 @@ ElementContainer::Copy()
 QRectF
 ElementContainer::boundingRect() const
 {
-    return QRectF( -18, -3, 36, 21 );
+    return QRectF( -50, -50, 100, 100 );
 }
 
 
@@ -38,25 +43,16 @@ ElementContainer::boundingRect() const
 void
 ElementContainer::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget )
 {
-    Q_UNUSED( widget );
+    Q_UNUSED( widget )
     painter->setPen( QPen( Qt::black, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin ) );
-    painter->setBrush( Qt::NoBrush );
-    painter->drawEllipse( -15, -15, 30, 30 );
-    painter->setPen( QPen( Qt::black, 2, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin ) );
-    // draw dendritic tree
-    painter->drawLine( 0, -15, 0, -20 );
-    painter->drawLine( 0, -20, -15, -25 );
-    painter->drawLine( 0, -20, 15, -25 );
-    painter->drawLine( -15, -25, -15, -30 );
-    painter->drawLine( 15, -25, 15, -30 );
-    // draw axon
-    painter->drawLine( 0, 15, 0, 45 );
+    painter->setBrush( QColor( 219, 214, 121, 255 ) );
+    painter->drawRect( QRectF( -45, -45, 90, 90 ) );
 
     // draw connects
     painter->setPen( QPen( CONNECT_COLOR ) );
     painter->setBrush( CONNECT_COLOR );
-    painter->drawEllipse( -18, -33, 6, 6 );
-    painter->drawEllipse( 12, -33, 6, 6 );
+    painter->drawEllipse( -18, -48, 6, 6 );
+    painter->drawEllipse( 12, -48, 6, 6 );
     painter->drawEllipse( -3, 42, 6, 6 );
 
     if( option->state & QStyle::State_Selected )
@@ -72,4 +68,35 @@ ElementContainer::paint( QPainter* painter, const QStyleOptionGraphicsItem* opti
 void
 ElementContainer::Update()
 {
+    for( size_t i = 0; i < m_Elements.size(); ++i )
+    {
+        m_Elements[ i ]->Update();
+    }
+}
+
+
+
+void
+ElementContainer::SetToScene( GraphicsScene* scene )
+{
+    m_Scene = scene;
+
+    for( size_t i = 0; i < m_Elements.size(); ++i )
+    {
+        m_Scene->addItem( m_Elements[ i ] );
+    }
+}
+
+
+
+void
+ElementContainer::InsertContainer()
+{
+    Element* element = new ElementContainer();
+    m_Elements.push_back( element );
+
+    if( m_Scene != NULL )
+    {
+        m_Scene->addItem( element );
+    }
 }
