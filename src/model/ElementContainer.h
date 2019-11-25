@@ -30,6 +30,8 @@ private:
     std::vector< Element* > m_Elements;
 
     GraphicsScene* m_Scene;
+
+    int counter;
 };
 
 

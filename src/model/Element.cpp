@@ -22,7 +22,7 @@ Element::~Element()
 void
 Element::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
-    this->setCursor(QCursor(Qt::ClosedHandCursor));
+    QGraphicsItem::mousePressEvent( event );
 }
 
 
@@ -30,7 +30,7 @@ Element::mousePressEvent( QGraphicsSceneMouseEvent* event )
 void
 Element::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 {
-    this->setCursor(QCursor(Qt::ArrowCursor));
+    QGraphicsItem::mouseReleaseEvent( event );
 }
 
 
@@ -38,5 +38,5 @@ Element::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 void
 Element::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 {
-    this->setPos(mapToScene(event->pos()));
+    QGraphicsItem::mouseMoveEvent( event );
 }

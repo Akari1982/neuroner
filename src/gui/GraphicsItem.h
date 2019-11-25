@@ -36,7 +36,7 @@ public:
         IT_PFET,
         IT_NEURON,
         IT_VOLTMETER,
-        IT_SUB_CURCUIT
+        IT_CONTAINER
     };
     ItemType GetType() const;
 

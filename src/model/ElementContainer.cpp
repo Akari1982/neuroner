@@ -9,6 +9,9 @@
 ElementContainer::ElementContainer():
     m_Scene( NULL )
 {
+    m_ItemType = IT_CONTAINER;
+
+    counter = 0;
 }
 
 
@@ -55,6 +58,14 @@ ElementContainer::paint( QPainter* painter, const QStyleOptionGraphicsItem* opti
     painter->drawEllipse( 12, -48, 6, 6 );
     painter->drawEllipse( -3, 42, 6, 6 );
 
+    QFont font( "Times", 10 );
+    font.setStyleStrategy( QFont::ForceOutline );
+    painter->setFont( font );
+    painter->save();
+    painter->scale( 1, 1 );
+    painter->drawText( 0, 0, QString("Counter: %1").arg( counter) );
+    painter->restore();
+
     if( option->state & QStyle::State_Selected )
     {
         painter->setPen( QPen( Qt::black, 0, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin ) );
@@ -68,6 +79,8 @@ ElementContainer::paint( QPainter* painter, const QStyleOptionGraphicsItem* opti
 void
 ElementContainer::Update()
 {
+    ++counter;
+
     for( size_t i = 0; i < m_Elements.size(); ++i )
     {
         m_Elements[ i ]->Update();

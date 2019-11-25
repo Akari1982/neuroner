@@ -56,6 +56,18 @@ GraphicsScene::drawForeground( QPainter* painter, const QRectF& rect )
 void
 GraphicsScene::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
+    QGraphicsScene::mousePressEvent( event );
+
+    Element* item = ( Element* )itemAt( event->scenePos(), ( ( QGraphicsView* )event->widget()->parentWidget() )->viewportTransform() );
+    if( item != NULL )
+    {
+        if( item->GetType() == GraphicsItem::IT_CONTAINER )
+        {
+            clear();
+            m_Container = ( ElementContainer* )item;
+            m_Container->SetToScene( this );
+        }
+    }
 }
 
 
@@ -63,6 +75,7 @@ GraphicsScene::mousePressEvent( QGraphicsSceneMouseEvent* event )
 void
 GraphicsScene::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 {
+    QGraphicsScene::mouseReleaseEvent( event );
 }
 
 
@@ -70,6 +83,22 @@ GraphicsScene::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 void
 GraphicsScene::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 {
+    QGraphicsScene::mouseMoveEvent( event );
+}
+
+
+
+void
+GraphicsScene::mouseDoubleClickEvent( QGraphicsSceneMouseEvent* event )
+{
+    QGraphicsScene::mouseDoubleClickEvent( event );
+
+    Element* item = ( Element* )itemAt( event->scenePos(), ( ( QGraphicsView* )event->widget()->parentWidget() )->viewportTransform() );
+    if( item->GetType() == GraphicsItem::IT_CONTAINER )
+    {
+        m_Container = ( ElementContainer* )item;
+        m_Container->SetToScene( this );
+    }
 }
 
 
