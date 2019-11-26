@@ -8,8 +8,9 @@
 GraphicsScene::GraphicsScene( QObject* parent ):
     QGraphicsScene( parent )
 {
-    m_Container = new ElementContainer();
-    m_Container->SetToScene( this );
+    m_RootContainer = new ElementContainer( NULL );
+    m_CurrentContainer = m_RootContainer;
+    m_RootContainer->SetScene( this );
 }
 
 
@@ -23,15 +24,18 @@ GraphicsScene::~GraphicsScene()
 void
 GraphicsScene::Update()
 {
-    m_Container->Update();
+    if( m_CurrentContainer != NULL )
+    {
+        m_CurrentContainer->Update();
+    }
 }
 
 
 
 ElementContainer*
-GraphicsScene::GetContainer()
+GraphicsScene::GetCurrentContainer()
 {
-    return m_Container;
+    return m_CurrentContainer;
 }
 
 
@@ -39,8 +43,8 @@ GraphicsScene::GetContainer()
 void
 GraphicsScene::drawBackground( QPainter* painter, const QRectF& rect )
 {
-    Q_UNUSED( painter );
-    Q_UNUSED( rect );
+    Q_UNUSED( painter )
+    Q_UNUSED( rect )
 }
 
 
@@ -57,17 +61,6 @@ void
 GraphicsScene::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
     QGraphicsScene::mousePressEvent( event );
-
-    Element* item = ( Element* )itemAt( event->scenePos(), ( ( QGraphicsView* )event->widget()->parentWidget() )->viewportTransform() );
-    if( item != NULL )
-    {
-        if( item->GetType() == GraphicsItem::IT_CONTAINER )
-        {
-            clear();
-            m_Container = ( ElementContainer* )item;
-            m_Container->SetToScene( this );
-        }
-    }
 }
 
 
@@ -91,13 +84,30 @@ GraphicsScene::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 void
 GraphicsScene::mouseDoubleClickEvent( QGraphicsSceneMouseEvent* event )
 {
-    QGraphicsScene::mouseDoubleClickEvent( event );
+    //QGraphicsScene::mouseDoubleClickEvent( event );
 
-    Element* item = ( Element* )itemAt( event->scenePos(), ( ( QGraphicsView* )event->widget()->parentWidget() )->viewportTransform() );
-    if( item->GetType() == GraphicsItem::IT_CONTAINER )
+    if( event->buttons() & Qt::RightButton )
     {
-        m_Container = ( ElementContainer* )item;
-        m_Container->SetToScene( this );
+        ElementContainer* container = m_CurrentContainer->GetParentContainer();
+        if( container != NULL )
+        {
+            m_CurrentContainer->UnsetScene();
+            m_CurrentContainer = container;
+            m_CurrentContainer->SetScene( this );
+        }
+    }
+    else if( event->buttons() & Qt::LeftButton )
+    {
+        Element* item = ( Element* )itemAt( event->scenePos(), ( ( QGraphicsView* )event->widget()->parentWidget() )->viewportTransform() );
+        if( item != NULL )
+        {
+            if( item->GetType() == GraphicsItem::IT_CONTAINER )
+            {
+                m_CurrentContainer->UnsetScene();
+                m_CurrentContainer = ( ElementContainer* )item;
+                m_CurrentContainer->SetScene( this );
+            }
+        }
     }
 }
 

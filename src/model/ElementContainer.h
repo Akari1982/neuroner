@@ -12,7 +12,7 @@ class GraphicsScene;
 class ElementContainer : public Element
 {
 public:
-    ElementContainer();
+    ElementContainer( ElementContainer* parent );
     virtual ~ElementContainer();
 
     ElementContainer* Copy();
@@ -22,7 +22,8 @@ public:
 
     void Update();
 
-    void SetToScene( GraphicsScene* scene );
+    void SetScene( GraphicsScene* scene );
+    void UnsetScene();
 
     void InsertContainer();
 

@@ -17,7 +17,7 @@ public:
 
     void Update();
 
-    ElementContainer* GetContainer();
+    ElementContainer* GetCurrentContainer();
 
 protected:
     void drawBackground( QPainter* painter, const QRectF& rect );
@@ -30,7 +30,8 @@ protected:
     void keyPressEvent( QKeyEvent* event );
 
 private:
-    ElementContainer* m_Container;
+    ElementContainer* m_RootContainer;
+    ElementContainer* m_CurrentContainer;
 };
 
 

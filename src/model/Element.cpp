@@ -4,7 +4,8 @@
 
 
 
-Element::Element()
+Element::Element( ElementContainer* parent ):
+    m_Container( parent )
 {
     setZValue( 2 );
 
@@ -19,10 +20,25 @@ Element::~Element()
 
 
 
+ElementContainer*
+Element::GetParentContainer()
+{
+    return m_Container;
+}
+
+
+
 void
 Element::mousePressEvent( QGraphicsSceneMouseEvent* event )
 {
-    QGraphicsItem::mousePressEvent( event );
+    if( isSelected() == true )
+    {
+        QGraphicsItem::mousePressEvent( event );
+    }
+    else
+    {
+        event->accept();
+    }
 }
 
 
@@ -30,7 +46,14 @@ Element::mousePressEvent( QGraphicsSceneMouseEvent* event )
 void
 Element::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 {
-    QGraphicsItem::mouseReleaseEvent( event );
+    if( isSelected() == true )
+    {
+        QGraphicsItem::mouseReleaseEvent( event );
+    }
+    else
+    {
+        event->accept();
+    }
 }
 
 
@@ -38,5 +61,12 @@ Element::mouseReleaseEvent( QGraphicsSceneMouseEvent* event )
 void
 Element::mouseMoveEvent( QGraphicsSceneMouseEvent* event )
 {
-    QGraphicsItem::mouseMoveEvent( event );
+    if( isSelected() == true )
+    {
+        QGraphicsItem::mouseMoveEvent( event );
+    }
+    else
+    {
+        event->accept();
+    }
 }

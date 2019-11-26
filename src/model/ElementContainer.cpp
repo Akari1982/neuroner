@@ -6,7 +6,8 @@
 
 
 
-ElementContainer::ElementContainer():
+ElementContainer::ElementContainer( ElementContainer* parent ):
+    Element( parent ),
     m_Scene( NULL )
 {
     m_ItemType = IT_CONTAINER;
@@ -29,7 +30,7 @@ ElementContainer::~ElementContainer()
 ElementContainer*
 ElementContainer::Copy()
 {
-    ElementContainer* element = new ElementContainer();
+    ElementContainer* element = new ElementContainer( GetParentContainer() );
     return element;
 }
 
@@ -90,7 +91,7 @@ ElementContainer::Update()
 
 
 void
-ElementContainer::SetToScene( GraphicsScene* scene )
+ElementContainer::SetScene( GraphicsScene* scene )
 {
     m_Scene = scene;
 
@@ -103,9 +104,22 @@ ElementContainer::SetToScene( GraphicsScene* scene )
 
 
 void
+ElementContainer::UnsetScene()
+{
+    for( size_t i = 0; i < m_Elements.size(); ++i )
+    {
+        m_Scene->removeItem( m_Elements[ i ] );
+    }
+
+    m_Scene = NULL;
+}
+
+
+
+void
 ElementContainer::InsertContainer()
 {
-    Element* element = new ElementContainer();
+    Element* element = new ElementContainer( this );
     m_Elements.push_back( element );
 
     if( m_Scene != NULL )

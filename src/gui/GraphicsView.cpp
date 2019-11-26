@@ -83,12 +83,12 @@ GraphicsView::mousePressEvent( QMouseEvent* event )
     if( event->button() == Qt::RightButton )
     {
         m_PrevTrans = event->globalPos();
+        event->accept();
     }
     else
     {
         QGraphicsView::mousePressEvent( event );
     }
-    event->accept();
 }
 
 
@@ -97,7 +97,6 @@ void
 GraphicsView::mouseReleaseEvent( QMouseEvent* event )
 {
     QGraphicsView::mouseReleaseEvent( event );
-    event->accept();
 }
 
 
@@ -113,12 +112,12 @@ GraphicsView::mouseMoveEvent( QMouseEvent *event )
         setTransformationAnchor( QGraphicsView::NoAnchor );
         SetupMatrix();
         setTransformationAnchor( QGraphicsView::AnchorUnderMouse );
+        event->accept();
     }
     else
     {
         QGraphicsView::mouseMoveEvent( event );
     }
-    event->accept();
 }
 
 
@@ -126,5 +125,5 @@ GraphicsView::mouseMoveEvent( QMouseEvent *event )
 void
 GraphicsView::mouseDoubleClickEvent( QMouseEvent* event )
 {
-    event->accept();
+    QGraphicsView::mouseDoubleClickEvent( event );
 }

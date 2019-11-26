@@ -279,7 +279,7 @@ MainWindow::InsertContainer()
 {
     if( m_Scene != NULL )
     {
-        m_Scene->GetContainer()->InsertContainer();
+        m_Scene->GetCurrentContainer()->InsertContainer();
     }
 }
 
