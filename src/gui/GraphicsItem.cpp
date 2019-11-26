@@ -8,7 +8,6 @@
 GraphicsItem::GraphicsItem():
     m_Circuit( 0 )
 {
-    setFlags( ItemIsSelectable | ItemIsMovable | ItemIsFocusable | ItemSendsGeometryChanges );
 }
 
 

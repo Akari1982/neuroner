@@ -24,6 +24,8 @@ protected:
     void mouseReleaseEvent( QGraphicsSceneMouseEvent* event ) override;
     void mouseMoveEvent( QGraphicsSceneMouseEvent* event ) override;
 
+    QVariant itemChange( GraphicsItemChange change, const QVariant& value );
+
 private:
     ElementContainer* m_Container;
 };
