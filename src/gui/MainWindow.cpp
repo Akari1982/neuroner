@@ -31,9 +31,13 @@ MainWindow::MainWindow( QWidget *parent ):
 
     m_ToolBar = addToolBar( tr( "Elements" ) );
     QAction* insert_container = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertContainer" ), this );
-    insert_container->setStatusTip( tr( "Inserts new Pin element." ) );
+    insert_container->setStatusTip( tr( "Inserts new Container element." ) );
     connect( insert_container, &QAction::triggered, this, &MainWindow::InsertContainer );
     m_ToolBar->addAction( insert_container );
+    QAction* insert_neuron = new QAction( QIcon( QPixmap( ":/images/ground.png" ) ), tr( "&InsertNeuron" ), this );
+    insert_neuron->setStatusTip( tr( "Inserts new Neuron element." ) );
+    connect( insert_neuron, &QAction::triggered, this, &MainWindow::InsertNeuron );
+    m_ToolBar->addAction( insert_neuron );
     /*
     QAction* insert_pin = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertPin" ), this );
     insert_pin->setStatusTip( tr( "Inserts new Pin element." ) );
@@ -55,10 +59,6 @@ MainWindow::MainWindow( QWidget *parent ):
     insert_pfet->setStatusTip( tr( "Inserts new Pfet element." ) );
     connect( insert_pfet, &QAction::triggered, this, &MainWindow::InsertPfet );
     m_ToolBar->addAction( insert_pfet );
-    QAction* insert_neuron = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertNeuron" ), this );
-    insert_neuron->setStatusTip( tr( "Inserts new Neuron element." ) );
-    connect( insert_neuron, &QAction::triggered, this, &MainWindow::InsertNeuron );
-    m_ToolBar->addAction( insert_neuron );
     QAction* insert_voltmeter = new QAction( QIcon( QPixmap( ":/images/pin.png" ) ), tr( "&InsertVoltmeter" ), this );
     insert_voltmeter->setStatusTip( tr( "Inserts new Voltmeter element." ) );
     connect( insert_voltmeter, &QAction::triggered, this, &MainWindow::InsertVoltmeter );
@@ -286,76 +286,10 @@ MainWindow::InsertContainer()
 
 
 void
-MainWindow::InsertPin()
-{
-    if( m_Scene != 0 )
-    {
-        //m_Scene->InsertPin();
-    }
-}
-
-
-
-void
-MainWindow::InsertGround()
-{
-    if( m_Scene != 0 )
-    {
-        //m_Scene->InsertGround();
-    }
-}
-
-
-
-void
-MainWindow::InsertPower()
-{
-    if( m_Scene != 0 )
-    {
-        //m_Scene->InsertPower();
-    }
-}
-
-
-
-void
-MainWindow::InsertNfet()
-{
-    if( m_Scene != 0 )
-    {
-        //m_Scene->InsertNfet();
-    }
-}
-
-
-
-void
-MainWindow::InsertPfet()
-{
-    if( m_Scene != 0 )
-    {
-        //m_Scene->InsertPfet();
-    }
-}
-
-
-
-void
 MainWindow::InsertNeuron()
 {
-    if( m_Scene != 0 )
+    if( m_Scene != NULL )
     {
-        //m_Scene->InsertNeuron();
-    }
-}
-
-
-
-void
-MainWindow::InsertVoltmeter()
-{
-    if( m_Scene != 0 )
-    {
-        //m_Scene->InsertVoltmeter();
+        m_Scene->GetCurrentContainer()->InsertNeuron();
     }
 }

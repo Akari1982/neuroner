@@ -1,46 +1,36 @@
-#include "Neuron.h"
+#include "ElementNeuron.h"
 
-#include "../GraphicsScene.h"
-#include "../Connect.h"
-#include "../Line.h"
+#include "../gui/GraphicsScene.h"
 
 #include <QtWidgets>
 
 
 
-Neuron::Neuron()
+ElementNeuron::ElementNeuron( ElementContainer* parent ):
+    Element( parent )
 {
     m_ItemType = IT_NEURON;
-
-    Contact con;
-    con.connect = 0;
-    con.point = QPoint( -15, -30 );
-    m_Contacts.push_back( con );
-    con.point = QPoint( 15, -30 );
-    m_Contacts.push_back( con );
-    con.point = QPoint( 0, 45 );
-    m_Contacts.push_back( con );
 }
 
 
 
-Neuron::~Neuron()
+ElementNeuron::~ElementNeuron()
 {
 }
 
 
 
 Element*
-Neuron::Copy()
+ElementNeuron::Copy()
 {
-    Element* element = new Neuron();
+    Element* element = new ElementNeuron( GetParentContainer() );
     return element;
 }
 
 
 
 QRectF
-Neuron::boundingRect() const
+ElementNeuron::boundingRect() const
 {
     return QRectF( -21, -21, 42, 42 );
 }
@@ -48,9 +38,10 @@ Neuron::boundingRect() const
 
 
 void
-Neuron::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget )
+ElementNeuron::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget )
 {
-    Q_UNUSED( widget );
+    Q_UNUSED( widget )
+
     painter->setPen( QPen( Qt::black, 4, Qt::SolidLine, Qt::SquareCap, Qt::MiterJoin ) );
     painter->setBrush( Qt::NoBrush );
     painter->drawEllipse( -15, -15, 30, 30 );
@@ -82,21 +73,6 @@ Neuron::paint( QPainter* painter, const QStyleOptionGraphicsItem* option, QWidge
 
 
 void
-Neuron::Update()
-{
-}
-
-
-
-void
-Neuron::Trace( Line* line, Connect* connect )
-{
-    m_Visited = true;
-}
-
-
-
-void
-Neuron::SetValue( const int value, Connect* connect )
+ElementNeuron::Update()
 {
 }

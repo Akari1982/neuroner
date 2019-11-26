@@ -1,4 +1,5 @@
 #include "ElementContainer.h"
+#include "ElementNeuron.h"
 
 #include "../gui/GraphicsScene.h"
 
@@ -120,6 +121,20 @@ void
 ElementContainer::InsertContainer()
 {
     Element* element = new ElementContainer( this );
+    m_Elements.push_back( element );
+
+    if( m_Scene != NULL )
+    {
+        m_Scene->addItem( element );
+    }
+}
+
+
+
+void
+ElementContainer::InsertNeuron()
+{
+    Element* element = new ElementNeuron( this );
     m_Elements.push_back( element );
 
     if( m_Scene != NULL )

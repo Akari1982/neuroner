@@ -17,7 +17,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow( QWidget *parent = 0 );
+    MainWindow( QWidget* parent = NULL );
     virtual ~MainWindow();
 
 private  slots:
@@ -26,13 +26,7 @@ private  slots:
     void CircuitUpdate();
 
     void InsertContainer();
-    void InsertPin();
-    void InsertGround();
-    void InsertPower();
-    void InsertNfet();
-    void InsertPfet();
     void InsertNeuron();
-    void InsertVoltmeter();
 
 private:
     QSplitter* m_Splitter;

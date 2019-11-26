@@ -42,6 +42,7 @@ SOURCES +=\
     gui/View.cpp \
     model/Element.cpp \
     model/ElementContainer.cpp \
+    model/ElementNeuron.cpp \
     Main.cpp \
 
 HEADERS  += \
@@ -52,6 +53,7 @@ HEADERS  += \
     gui/View.h \
     model/Element.h \
     model/ElementContainer.h \
+    model/ElementNeuron.h \
 
 RESOURCES += \
     images.qrc

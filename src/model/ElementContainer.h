@@ -26,6 +26,7 @@ public:
     void UnsetScene();
 
     void InsertContainer();
+    void InsertNeuron();
 
 private:
     std::vector< Element* > m_Elements;
