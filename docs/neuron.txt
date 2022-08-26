@@ -1,0 +1,10 @@
+Внутри клетки отрицательный заряд range from –40 mV to –80 mV
+
+Нейроны с потенциалом действия
+    - The speed of signal transmission at 200bits/ second, but reconstruction is greater and there is less influence by noise
+
+Нейроны без потенциала действия
+    - Проводят сигнал по мере поступления
+    - Больше подвержены шумам
+    - The speed of signal transmission at 200 Hz, the most conserved bandwidth of signal transmission for non-spiking neurons, was approximately 2500 bits/second in which there was a 10-15% decrease in speed as the signal propagated down the axon
+    

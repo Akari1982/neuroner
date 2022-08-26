@@ -1,0 +1,122 @@
+Первичная визуальная система (early visual system) плодовой мушки находится в оптических долях (optic lobe). Она состоит из 4рех нейропилей: Lamina, Medulla, Lobula и Lobula Plate. The optic lobe is estimated to comprise more than half of the total
+numbers of neurons in the fruit fly. The total cell count of the optic lobe on each
+side of the brain is approximately 66, 000, of which about 5, 000 are in the retina,
+6, 000 are in the Lamina, 40, 000 are in the Medulla and 15, 000 are in the Lobula
+complex [11].
+The Lamina sits behind the retina, and is the first of the optic neuropils in the
+Drosophila’s compound eye. The relative position of the Lamina in the optic lobe
+is shown in Fig. 1. For more details, see [3, 12, 13, 14] and the references therein.
+The Lamina receives inputs from six photoreceptors (R1-R6) located in the Retina.
+Most of the inputs to the next neuropil, the Medulla, are provided by neurons in
+the Lamina, exceptions being the two color sensitive photoreceptors (R7-R8) that
+bypass the Lamina. Thus, the first stage of visual processing is performed in the
+Lamina. [[1]]
+
+
+
+== Фасеточные глаза ==
+Как и другие насекомые дрозофила фруктовая (Drosophila melanogaster) обладает парой фасеточных глаз, которые состоят из примерно 800 фасеток называемых омматидиями. Каждый омматидий содержит восемь фоторецепторов (R1-8). Таким образом сетчатка является своеобразным интерфейсом между видимым миром и нервной системой. С одной стороны сетчатка и ее геометрия взаимодействуют с трехмерным видимым миром, с другой сетчатка посылает электрические сигналы на последующие этапы обработки в нервную систему (в Lamina и Medulla), у которых сохраняется структура заданная омматидиями в фасеточном глазу.
+
+== Структура фасеточного глаза ==
+Пара фасеточных глаз расположена с левой и правой стороны головы дрозофилы. Каждый фасеточный глаз по форме близок к половине элипсоида растянутого по дорсально-вентральной оси (от спинки к брюшку). Размер глаза примерно 500мкм по дорсально-вентральной оси и 350мкм по задне-передней оси и покрывает угол обзора 180 на 160 градусов. Оба глаза зеркально симметричны. Сетчатка дрозофилы фруктовой состоит из порядка 800 повторяющихся элементов (фасеток), называемых омматидиями. Омматидии расположены по гексагональной сетке. Хотя глаз и растянут по одной из осей - омматидии располагаются практически по кругу, если развернуть его на плоскость. Количество омматидиев по дорсально-вентральной оси и по задне-передней оси практически совпадает. Центральный ряд задне-передней оси задает экватор глаза относительно которого конфигурация омматидиев зеркально повторяется.
+
+== Структура омматидия и фоторецепторов ==
+Каждый омматидий дрозофилы фруктовой состоит из:
+ - линзы роговицы и кристаллического конуса также работающего как линза.
+ - 8 фоторецепторов R1-8.
+ - пигментных клеток и клеток конуса поддерживающих всю структуру (мухи живущие в дикой природе обладают красноватыми пигментными клетками в омматидиях, которые поглощают излишки синего цвета, чтобы муху не ослеплял рассеяный свет.
+).
+
+Каждый фоторецептор состоит из нечуствительной к свету базальной мембраны и светочуствительной мембраны. Светочуствительная часть называется рабдомер и состоит из плотно упакованных микроворсинок. Рабдомер имеет диаметр 1-2мкм и вытянут вдоль длинны омматидия на 100мкм. Каждый рабдомер содержит около 30000 микроворсинок, каждая длинной 1-2мкм и 60нм в диаметре. Рабдомеры распределяют свет вдоль всей своей длинны так чтобы микроворсинки могли его поглотить.
+
+У дрозофил, как и других представителей отряда двукрылые, 8 фоторецепторов расположены в особом порядке. Шесть рабдомеров фоторецепторов (R1-6) расположено гексагонально с трапецеидальной ассиметрией. Еще 2 рабдомера расположены один над другим в самом центре омматидия. Верхний фоторецептор называется R7, нижний R8. Положение рабдомеров и их фоторецепторов зеркально-симметрично относительно экватора глаза.
+
+У каждого рабдомера своя оптическая ось, то есть своя прямая линия соединяющая кончик рабдомера с центром линзы в омматидии. Пространственное разрешение глаза определяется углом между омматидиями, который определяется как разица оптических осей фоторецепторов R7-R8. У дрозофилы этот угол обычно равен 5 градусам.
+
+Мембрана рабдомера содержит порядка 100 миллионов молекул родопсина, протеина, который поглощает свет. Фоторецепторы экспрессируют разные изоформы родопсина. Клетки фоторецепторов R1-R6 экспрессируют Rh1, который поглащает синий свет (480нм). Клетки фоторецепторов R7 и R8 экспрессируют разный родопсин и по этому выделяют 3 главных подтипа омматидиев. Два из них, так называемые "бледный" и "желтый" омматидии распределены по сетчатке случайным образом в пропорции 35:65. Бледные омматидии экспрессируют чувствительный к ультрафиолету (345нм) Rh3 в R7, и чуствительный к синему свету (437нм) Rh5 в R8. Желтые омматидии экспрессируют чуствительный к более длинному ультрафиолету (375нм) Rh4 в R7 и чуствительный к зеленому свету (508нм) Rh6 в R8. Омматидии третего класса находится на дорсальном крае сетчатки в один или местами в два ряда и используется для детектирования направления поляризации света.
+
+ serve as detectors for the oscillation plane (e-vector orientation) of linearly polarized light
+On its way through the atmosphere, unpolarized sunlight is scattered by air molecules and, as a result, skylight is partly polarized. At any point of the sky, a particular e-vector orientation dominates depending on the position of the sun producing a polarization pattern that forms the basis for a polarization compass demonstrated for many insect species.
+
+the inner PRs are strongly polarization-sensitive, which is due to strict alignment of the microvilli that form the rhabdomere. In all other PRs, polarization
+sensitivity is weak because the microvilli are misaligned by rhabdomere twisting. The diameter of both inner PR rhabdomeres is significantly enlarged.
+
+ The microvilli of R7  and  R8  are  oriented  orthogonally  to  each  other (Wunderer and Smola, 1982) indicating that these cells are tuned to e-vector orientations that differ by 90 градусов. R7  and  R8  project to  the  medulla and  are believed  to  interact  antagonistically  via  polarization-sensitive interneurons to enhance polarization sensitivity,  a  processing  mechanism  demonstrated  for  other insects (Labhart, 1988, 2000; Rossel and Wehner, 1986;
+for review, Labhart and Meyer, 2002). (4) Both R7 and R8 express the UV-sensitive opsin Rh3 (Fortini and Rubin, 1990, 1991). Thus, the polarization compass is monochromatic and hence color-blind, so that any ambiguity between  information  about  color  and polarization  is eliminated.
+
+КАК ДЕТЕКТИРУЕТСЯ ПОЛЯРИЗАЦИЯ СВЕТА?
+
+НАДО ОПИСАНИЕ КАК ФОТОРЕЦЕПТОР ДАЕТ СИГНАЛ И С ЧЕМ ВЗАИМОДЕЙСТВУЕТ?
+
+
+
+== Lamina ==
+Ламина самый периферийный нейропиль зрительной системы дрозофилы. В ней находится 11 различных классов нейронов: the lamina monopolar cells L1-L5, two GABAergic feedback neurons (C2 and C3), two wide-field feedback neurons (Lawf1 and Lawf2), lamina intrinsic amacrine neurons (Lai) and the T1 basket cell. The outer photoreceptors, R1-R6, terminate in the lamina, where they form tetrad synapses with L1, L2, L3, and Lai.[5]
+
+Сама Lamina состоит из примерно 6000 нейронов, которые можно разделить на два типа: projection (или выводящие) нейроны, аксоны которых проецируются (уходят) в Medulla и локальные нейроны (LNs) выход которых не выходит за пределы этого нейропиля. Аксоны некоторых фоторецепторов сетчатки (КАКИЕ?) иннервируют Lamina и таким образом представляют входные сигналы для этого нейропиля.
+
+Вход на Ламину обеспечивают примерно 4800 аксонов от фоторецепторов R1-R6, которые приходят на клетки L1, L2m L3, AC. Фоторецепторы, при попадании на них света, взаимодействуют с ними выпуская ингибиторный нейротрансмиттер гистамин (histamine) вызывая их гиперполяризацию. Когда света нет поступление гистамина прекрашается и постсинаптические нейроны возбуждаются. [[5]]
+
+Выходные нейроны из Ламины обычно объединяют в категории по их морфологии:
+1) Первый класс нейронов это Large Monopolar Cells (LMC). Всего в Ламине их около 4000. Тело клетки у них располагается между сетчаткой и Ламиной, а вот аксон и дендриты, в отличие от многих других нейронов, находятся на одном отростке (отсюда клетки и получили свое название). Аксоны их уходят в Medulla. Большие однополярные клетки делятся на 5 типов и называются соответственно L1-L5.
+
+У клеток L1 и L2 самый большой диаметр аксона.
+Эти клетки получают прямой вход от фоторецепторов. Для более быстрой реполяризации клетки она также получает Ацетилхолиновые входные синапсы от Амакринных клеток ACs и нейронов L4.
+Клетки L1 и L2 электрически связаны через gap junction.
+Обе клетки L1 и L2 получают множество входов от своего фоторецептора, нейрона L4, а также от амакринных клеток ACs и нейронов C2, C3 и Lawf но точный механизм реполяризации пока остается неизвестен.
+Клетки L1 экспрпессируют глутамат (glutamate), L2 - ацетилхолин (acetylcholine)
+Нейроны не spiky.
+L1 это один из основных входов для вычисления ON-edge границы.
+L2 это один из основных входов для вычисления OFF-edge границы.
+
+
+У клеток L3 средний размер аксона.
+Экспрессируют glutamate.
+
+У клеток L4 и L5 очень тонкий аксон.
+Клетки L4 экспрессируют acetylcholine.
+
+
+Appropriate termination of the photoresponse in image-forming photoreceptors and downstream neurons is critical for an
+animal to achieve high temporal resolution. Although the cellular and molecular mechanisms of termination in image-form-
+ing photoreceptors have been extensively studied in Drosophila, the underlying mechanism of termination in their down-
+stream large monopolar cells remains less explored. Here, we show that synaptic ACh signaling, from both amacrine cells
+(ACs) and L4 neurons, facilitates the rapid repolarization of L1 and L2 neurons. Intracellular recordings in female flies show
+that blocking synaptic ACh output from either ACs or L4 neurons leads to slow repolarization of L1 and L2 neurons. Genetic
+and electrophysiological studies in both male and female flies determine that L2 neurons express ACh receptors and directly
+receive ACh signaling. Moreover, our results demonstrate that synaptic ACh signaling from both ACs and L4 neurons simul-
+taneously facilitates ERG termination. Finally, visual behavior studies in both male and female flies show that synaptic ACh
+signaling, from either ACs or L4 neurons to L2 neurons, is essential for the optomotor response of the flies in high-frequency
+light stimulation. Our study identifies parallel synaptic ACh signaling for repolarization of L1 and L2 neurons and demon-
+strates that synaptic ACh signaling facilitates L1 and L2 neuron repolarization to maintain the optomotor response of the fly
+on high-frequency light stimulation
+
+
+
+
+
+
+Some 750 T1 cells make up a class on their own. They have bushy arborization in
+the Medulla and extends thin processes into the Lamina. T1 neurons terminate in
+the Medulla [3].
+The Centrifugal neurons C2 and C3 have their cell bodies between the Medulla
+and the Lobula complex. Their neurites extend backwards into the Lamina. The
+Centrifugal neurons amount to 1, 500 cells and they all terminate in the Medulla
+[3, 5].
+The Lamina wide-field (Lawf) neurons are another type of output neurons of the
+Lamina. Lawf neurons innervate widely in the distal part of the Lamina and terminate in the distal parts of the Medulla (see Figure 3 in [3]).
+Lamina Tangential (Lat) neurons arborize widely in the Lamina. However, it is
+unclear which neuropil they project their axon to [3]. They are presumably only a
+few in numbers.
+
+Единственные локальные нейроны в ламине (то есть те чьи аксоны и дендриты не покидают этот нейропиль) это амакриновые клетки (Am). Они покрывают большое пространство и send thin processes through adjacent photoreceptor axons. Количество амакриновых клеток оценивается около 200-400.
+
+
+
+Референсы
+1) The Cartridge: A Canonical Neural Circuit Abstraction of the Lamina Neuropil Construction and Composition Rules.
+2) A Parallel Processing Model of the Drosophila Retina.
+3) Patterning the insect eye: from stochastic to deterministic mechanisms.
+4) Homothorax Switches Function of Drosophila Photoreceptors from Color to Polarized Light Sensors.
+
+5) 2021-03-10 Parallel Synaptic Acetylcholine Signals Facilitate LMC Repolarization and Modulate Visual Behavior.pdf
